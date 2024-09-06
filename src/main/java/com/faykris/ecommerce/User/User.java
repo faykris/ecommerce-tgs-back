@@ -1,21 +1,14 @@
 package com.faykris.ecommerce.User;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
+import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,19 +21,32 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name="users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
 public class User implements UserDetails {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
+
     @Basic
     @Column(nullable = false)
     String username;
+
     @Column(nullable = false)
     String lastname;
+
     String firstname;
-    String country;
+
+    String phone;
+
     String password;
+
+    Integer status;
+
     @Enumerated(EnumType.STRING) 
     Role role;
+
+    LocalDateTime createdAt;
+
+    LocalDateTime updatedAt;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -13,6 +13,9 @@ import com.faykris.ecommerce.User.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -38,8 +41,10 @@ public class AuthService {
             .password(passwordEncoder.encode( request.getPassword()))
             .firstname(request.getFirstname())
             .lastname(request.lastname)
-            .country(request.getCountry())
+            .phone(request.getPhone())
+            .status(1)
             .role(Role.USER)
+            .createdAt(LocalDateTime.now())
             .build();
 
         userRepository.save(user);
