@@ -1,4 +1,4 @@
-package com.irojas.demojwt.Auth;
+package com.faykris.ecommerce.Auth;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

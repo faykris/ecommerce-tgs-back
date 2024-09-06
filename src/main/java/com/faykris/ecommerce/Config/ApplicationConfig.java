@@ -1,5 +1,6 @@
-package com.irojas.demojwt.Config;
+package com.faykris.ecommerce.Config;
 
+import com.faykris.ecommerce.User.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,8 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import com.irojas.demojwt.User.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 

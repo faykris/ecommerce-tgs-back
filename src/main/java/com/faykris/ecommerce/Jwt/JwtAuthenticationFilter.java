@@ -1,4 +1,4 @@
-package com.irojas.demojwt.Jwt;
+package com.faykris.ecommerce.Jwt;
 
 import java.io.IOException;
 

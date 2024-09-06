@@ -1,4 +1,4 @@
-package com.irojas.demojwt;
+package com.faykris.ecommerce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

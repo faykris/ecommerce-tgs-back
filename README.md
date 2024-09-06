@@ -11,10 +11,6 @@ Technologies used:
   - Spring Security 6
   - jsonwebtoken
 
-## YouTube Channel
-
-   For a detailed step-by-step explanation of the login implementation, please visit https://youtu.be/nwqQYCM4YT8.
-
 ## Installation
 
 Follow these steps to install and run the project:

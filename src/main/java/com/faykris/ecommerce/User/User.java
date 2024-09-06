@@ -1,4 +1,4 @@
-package com.irojas.demojwt.User;
+package com.faykris.ecommerce.User;
 
 import java.util.Collection;
 import java.util.List;

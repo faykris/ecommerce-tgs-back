@@ -1,4 +1,4 @@
-package com.irojas.demojwt.Auth;
+package com.faykris.ecommerce.Auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
