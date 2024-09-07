@@ -1,5 +1,7 @@
 package com.faykris.ecommerce.Product;
 
+import com.faykris.ecommerce.Inventory.Inventory;
+import com.faykris.ecommerce.Order.Order;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -35,6 +37,14 @@ public class Product {
   String imageUrl;
 
   Integer status; // 1: available, 2: sold, 3: damaged
+
+  @ManyToOne
+  @JoinColumn(name = "inventoryId", referencedColumnName = "id", nullable = false)
+  private Inventory inventory;
+
+  @ManyToOne
+  @JoinColumn(name = "orderId", referencedColumnName = "id")
+  private Order order;
 
   LocalDateTime createdAt;
 

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SetProductsRequest {
+  Integer inventoryId;
   String name;
   String description;
   Double price;

@@ -1,5 +1,7 @@
 package com.faykris.ecommerce.Product;
 
+import com.faykris.ecommerce.Inventory.Inventory;
+import com.faykris.ecommerce.Inventory.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,17 +16,24 @@ public class ProductService {
   @Autowired
   private ProductRepository productRepository;
 
+  @Autowired
+  private InventoryRepository inventoryRepository;
+
   public List<Product> getAllProducts() {
     return productRepository.findAll();
   }
 
   public List<Product> saveProducts(SetProductsRequest request) {
+    Inventory inventory = inventoryRepository.findById(request.inventoryId).orElse(null);
+    if (inventory == null) {
+      throw new RuntimeException("Inventory not found with id " + request.inventoryId);
+    }
     final String productCode = generateProductCode();
     List<Product> products = new ArrayList<>();
 
     for (int i = 0; i < request.quantity; i++) {
       Product product = new Product();
-
+      product.setInventory(inventory);
       product.setName(request.getName());
       product.setDescription(request.getDescription());
       product.setPrice(request.getPrice());
