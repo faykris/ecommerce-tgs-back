@@ -47,12 +47,12 @@ public class OrderService {
     order.setCreatedAt(LocalDateTime.now());
 
     Order savedOrder = orderRepository.save(order);
-
     for (Product product : products) {
       product.setOrder(savedOrder);
       product.setStatus(2);
-      productRepository.save(product);
+      product.setUpdatedAt(LocalDateTime.now());
     }
+    productRepository.saveAll(products);
 
     return savedOrder;
   }
