@@ -23,6 +23,18 @@ public class ProductService {
     return productRepository.findAll();
   }
 
+  public List<Product> getProductsByCategory(String category) {
+    return productRepository.findAllByCategory(category);
+  }
+
+  public List<Product> getProductsByStatus(Integer status) {
+    return productRepository.findAllByStatus(status);
+  }
+
+  public List<Product> getProductsByInventory(Integer inventoryId) {
+    return productRepository.findAllByInventoryId(inventoryId);
+  }
+
   public List<Product> saveProducts(SetProductsRequest request) {
     Inventory inventory = inventoryRepository.findById(request.inventoryId).orElse(null);
     if (inventory == null) {

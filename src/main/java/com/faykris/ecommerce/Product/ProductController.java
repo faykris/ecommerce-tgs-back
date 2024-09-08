@@ -20,6 +20,21 @@ public class ProductController {
     return productService.getAllProducts();
   }
 
+  @GetMapping(value = "category")
+  public List<Product> getProductsByCategory(@RequestParam("value") String value) {
+    return productService.getProductsByCategory(value);
+  }
+
+  @GetMapping(value = "status")
+  public List<Product> getProductsByStatus(@RequestParam("value") Integer value) {
+    return productService.getProductsByStatus(value);
+  }
+
+  @GetMapping(value = "inventory")
+  public List<Product> getProductsByInventory(@RequestParam("value") Integer value) {
+    return productService.getProductsByInventory(value);
+  }
+
   @PostMapping()
   public List<Product> saveProducts(@RequestBody SetProductsRequest request) {
     return productService.saveProducts(request);

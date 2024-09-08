@@ -36,7 +36,7 @@ public class Product {
 
   String imageUrl;
 
-  Integer status; // 1: available, 2: sold, 3: damaged
+  Integer status; // 1: available, 2: shipped, 3: damaged
 
   @ManyToOne
   @JoinColumn(name = "inventoryId", referencedColumnName = "id", nullable = false)
