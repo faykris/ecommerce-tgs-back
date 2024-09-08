@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -22,14 +23,20 @@ public class OrderService {
   @Autowired
   private UserRepository userRepository;
 
-  public List<Order> getAllOrders() {
-    return orderRepository.findAll();
+  public List<SetProductsOrderResponse> getAllOrders() {
+    List<SetProductsOrderResponse> setProductsOrderResponses = new ArrayList<>();
+    List<Order> orders = orderRepository.findAll();
+    for (Order order : orders) {
+      SetProductsOrderResponse response = new SetProductsOrderResponse();
+      response.setOrder(order);
+      response.setProducts(productRepository.findAllByOrderId(order.getId()));
+      setProductsOrderResponses.add(response);
+    }
+
+    return setProductsOrderResponses;
   }
 
   public Order saveOrder(SetOrderRequest request) {
-    System.out.println("productIds from request:" + request.productIds + "----------");
-    System.out.println("description from request:" + request.description + "----------");
-    System.out.println("userId from request:" + request.userId + "----------");
     User user = userRepository.findById(request.userId).orElseThrow(
         () -> new RuntimeException("User not found by id: " + request.userId));
     List<Product> products = productRepository.findAllById(request.productIds);

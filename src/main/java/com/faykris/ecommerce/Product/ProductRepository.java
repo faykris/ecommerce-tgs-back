@@ -9,4 +9,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
   List<Product> findAllByCategory(String category);
   List<Product> findAllByStatus(Integer status);
   List<Product> findAllByInventoryId(Integer inventoryId);
+  List<Product> findAllByOrderId(Integer orderId);
 }
