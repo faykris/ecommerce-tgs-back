@@ -10,4 +10,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
   List<Product> findAllByStatus(Integer status);
   List<Product> findAllByInventoryId(Integer inventoryId);
   List<Product> findAllByOrderId(Integer orderId);
+  List<Product> findByStatus(int status);
 }
