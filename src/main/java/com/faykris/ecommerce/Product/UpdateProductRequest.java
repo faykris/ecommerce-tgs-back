@@ -13,6 +13,7 @@ public class UpdateProductRequest {
   String name;
   String description;
   Double price;
-  String imageUrl;
   String category;
+  Integer inventoryId;
+  String imageUrl;
 }

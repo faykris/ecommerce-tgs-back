@@ -69,13 +69,19 @@ public class ProductService {
     if (products.isEmpty()) {
       throw new RuntimeException("No products found with product code " + productCode);
     }
+    Inventory inventory = inventoryRepository.findById(request.inventoryId).orElseThrow(
+        () -> new RuntimeException("Inventory not found with id " + request.inventoryId)
+    );
 
     for (Product product : products) {
-      product.setName(request.getName());
-      product.setPrice(request.getPrice());
-      product.setDescription(request.getDescription());
-      product.setImageUrl(request.getImageUrl());
-      product.setUpdatedAt(LocalDateTime.now());
+      if (product.getStatus() == 1) {
+        product.setName(request.getName());
+        product.setPrice(request.getPrice());
+        product.setDescription(request.getDescription());
+        product.setImageUrl(request.getImageUrl());
+        product.setInventory(inventory);
+        product.setUpdatedAt(LocalDateTime.now());
+      }
     }
 
     return productRepository.saveAll(products).get(0);
