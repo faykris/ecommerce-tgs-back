@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,17 +22,8 @@ public class OrderService {
   @Autowired
   private UserRepository userRepository;
 
-  public List<SetProductsOrderResponse> getAllOrders() {
-    List<SetProductsOrderResponse> setProductsOrderResponses = new ArrayList<>();
-    List<Order> orders = orderRepository.findAll();
-    for (Order order : orders) {
-      SetProductsOrderResponse response = new SetProductsOrderResponse();
-      response.setOrder(order);
-      response.setProducts(productRepository.findAllByOrderId(order.getId()));
-      setProductsOrderResponses.add(response);
-    }
-
-    return setProductsOrderResponses;
+  public List<Order> getAllOrders() {
+    return orderRepository.findAll();
   }
 
   public Order saveOrder(SetOrderRequest request) {
@@ -51,6 +41,9 @@ public class OrderService {
     Order order = new Order();
     order.setUser(user);
     order.setDescription(request.description);
+    order.setQuantity(request.quantity);
+    order.setDiscount(request.discount);
+    order.setTotal(request.total);
     order.setCreatedAt(LocalDateTime.now());
 
     Order savedOrder = orderRepository.save(order);

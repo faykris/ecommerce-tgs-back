@@ -15,4 +15,7 @@ public class SetOrderRequest {
     Integer userId;
     List<Integer> productIds;
     String description;
+    Integer quantity;
+    Integer discount;
+    Double total;
 }
