@@ -24,7 +24,7 @@ Follow these steps to install and run the project:
 6. Perform the database inserts specified below these instructions (Optional)
 7. Test the API Rest using Postman or another application at `http://localhost:8080`
 
-## Queries in database
+## Queries in database - fixed
 
 The following queries are optional to execute. However you can add a bunch of record immediately as users, inventories, products and orders. 
 The orders is necessary be created in website due to dependency with orderId in products table  
@@ -48,9 +48,9 @@ INSERT INTO inventories(user_id, "name", created_at)
 VALUES (1, 'Plaza Centro', CURRENT_TIMESTAMP),
        (2, 'Mega Plaza', CURRENT_TIMESTAMP),
        (3, 'Plaza Ensueño', CURRENT_TIMESTAMP),
-       (4, 'Mall Centro', CURRENT_TIMESTAMP),
+       (4, 'Mall Centro', CURRENT_TIMESTAMP);
 
-INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, imageUrl)
+INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, image_url)
 VALUES
     ('Lisa Profesional Golty', 'Zapatilla lisa adecuada para el césped', 337900, 'Deportivos', 1, 'b52b884d-81cd-4754-8511-d38abc241a21', CURRENT_TIMESTAMP, 'https://golty.com.co/wp-content/uploads/2023/05/zapatilla-lisa-profesional-top-speed-blanco1.jpg'),
     ('Lisa Profesional Golty', 'Zapatilla lisa adecuada para el césped', 337900, 'Deportivos', 1, 'b52b884d-81cd-4754-8511-d38abc241a21', CURRENT_TIMESTAMP, 'https://golty.com.co/wp-content/uploads/2023/05/zapatilla-lisa-profesional-top-speed-blanco1.jpg'),
@@ -58,20 +58,20 @@ VALUES
     ('Lisa Profesional Golty', 'Zapatilla lisa adecuada para el césped', 337900, 'Deportivos', 1, 'b52b884d-81cd-4754-8511-d38abc241a21', CURRENT_TIMESTAMP, 'https://golty.com.co/wp-content/uploads/2023/05/zapatilla-lisa-profesional-top-speed-blanco1.jpg'),
     ('Lisa Profesional Golty', 'Zapatilla lisa adecuada para el césped', 337900, 'Deportivos', 1, 'b52b884d-81cd-4754-8511-d38abc241a21', CURRENT_TIMESTAMP, 'https://golty.com.co/wp-content/uploads/2023/05/zapatilla-lisa-profesional-top-speed-blanco1.jpg');
 
-INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, imageUrl)
+INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, image_url)
 VALUES
     ('Zapatos para bádminton', 'Zapatillas de entrenamiento de malla transpirable, ideal para niños y adolescentes', 383900, 'Deportivos', 2, '39b04111-99b2-4890-ad01-05601e48d2f7', CURRENT_TIMESTAMP, 'https://ae01.alicdn.com/kf/Sf9e97649eacb41899761596cddd04d6a0/Zapatos-de-b-dminton-para-ni-os-y-adolescentes-zapatillas-de-entrenamiento-de-malla-transpirable-antideslizantes.jpg'),
     ('Zapatos para bádminton', 'Zapatillas de entrenamiento de malla transpirable, ideal para niños y adolescentes', 383900, 'Deportivos', 2, '39b04111-99b2-4890-ad01-05601e48d2f7', CURRENT_TIMESTAMP, 'https://ae01.alicdn.com/kf/Sf9e97649eacb41899761596cddd04d6a0/Zapatos-de-b-dminton-para-ni-os-y-adolescentes-zapatillas-de-entrenamiento-de-malla-transpirable-antideslizantes.jpg'),
     ('Zapatos para bádminton', 'Zapatillas de entrenamiento de malla transpirable, ideal para niños y adolescentes', 383900, 'Deportivos', 2, '39b04111-99b2-4890-ad01-05601e48d2f7', CURRENT_TIMESTAMP, 'https://ae01.alicdn.com/kf/Sf9e97649eacb41899761596cddd04d6a0/Zapatos-de-b-dminton-para-ni-os-y-adolescentes-zapatillas-de-entrenamiento-de-malla-transpirable-antideslizantes.jpg');
 
-INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, imageUrl)
+INSERT INTO products("name", description, price, category, inventory_id, product_code, created_at, image_url)
 VALUES
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
-    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales' 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg');
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg'),
+    ('Zapatillas Showtheway', 'Estas zapatillas pueden con todo. Su silueta delgada con un logo de adidas en la lengueta', 375900, 'Casuales', 3, '4ac79574-9ae9-4323-8a3a-41122d7bd174', CURRENT_TIMESTAMP, 'https://assets.adidas.com/images/w_600,f_auto,q_auto/491fb5a326e64b11a9e4ab89012e06c7_9366/Zapatillas_Showtheway_Negro_FX3749_06_standard.jpg');
 
 
 -- ORDERS MUST BE CREATED IN WEBSIDE PLATFORM 
@@ -80,8 +80,6 @@ VALUES
 INSERT INTO "options"(user_id, integer_value, time_value, created_at, "name", description)
 VALUES
     (1, 10, '2024-10-09 00:59:39.838', CURRENT_TIMESTAMP, 'Oferta para órdenes', 'Se descontará el 10% en cada orden hasta que se cumpla la fecha especificada'),
-    (1, 5, '2024-10-12 00:59:39.838', CURRENT_TIMESTAMP, 'Se descontará el 5% a usuarios con 3 compras o más en menos de 1 mes');
-
-
+    (1, 5, '2024-10-12 00:59:39.838', CURRENT_TIMESTAMP, 'Oferta para usuarios frecuentes', 'Se descontará el 5% a usuarios con 3 compras o más en menos de 1 mes');
 
 ```
